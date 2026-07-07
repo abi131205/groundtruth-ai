@@ -38,16 +38,16 @@ GroundTruth AI features a clean, Scandinavian-minimalist civic-tech theme. It in
 
 ```mermaid
 flowchart TB
-    subgraph Data Sources
+    subgraph DS ["Data Sources"]
         IHIP[State IHIP / HMIS Data] -->|Pub/Sub BigQuery Sub| BigQuery[(BigQuery Data Warehouse)]
         Clinics[PHC/CHC Local Scribes] -->|Speech-to-Text| ScribeAPI[FastAPI Backend]
         IoT[Cold Chain Sensors] -->|Pub/Sub BigQuery Sub| BigQuery
     end
 
-    subgraph Google Cloud Platform (Platform Core)
+    subgraph GCP ["Google Cloud Platform (Platform Core)"]
         ScribeAPI -->|Transcribed Notes| Firestore[(Firestore Real-time DB)]
         
-        subgraph AI Brain & Analytics
+        subgraph AI ["AI Brain & Analytics"]
             BigQuery -->|BQML ARIMA_PLUS| BQML[BigQuery ML Engine]
             BigQuery -->|Demographics & Graphs| BQML
             Firestore -->|Contextual Semantics| Gemini[Gemini 1.5 Pro / Vertex AI Agent Builder]
@@ -57,16 +57,16 @@ flowchart TB
         Gemini -->|Explainable Recommendations| DecisionEngine[Decision Engine / Firestore]
     end
 
-    subgraph User Interface (Mission Control)
+    subgraph UI ["User Interface (Mission Control)"]
         Frontend[Next.js Web App] -->|Query| ScribeAPI
         ScribeAPI -->|Fetch Predictions| PredictionStore
         ScribeAPI -->|Fetch Explanations| DecisionEngine
         Frontend -->|Maps SDK| GoogleMaps[Google Maps Platform]
     end
 
-    style Platform Core fill:#244B5A,stroke:#D8D4CC,stroke-width:2px,color:#fff
-    style AI Brain & Analytics fill:#F1EEE8,stroke:#244B5A,stroke-width:2px,color:#2C3138
-    style Mission Control fill:#F8F6F1,stroke:#00A878,stroke-width:2px,color:#2C3138
+    style GCP fill:#244B5A,stroke:#D8D4CC,stroke-width:2px,color:#fff
+    style AI fill:#F1EEE8,stroke:#244B5A,stroke-width:2px,color:#2C3138
+    style UI fill:#F8F6F1,stroke:#00A878,stroke-width:2px,color:#2C3138
 ```
 
 ---
