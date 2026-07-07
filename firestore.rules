@@ -1,0 +1,40 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper checks
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdminOrStaff() {
+      return isAuthenticated() && 
+        (request.auth.token.role == 'DHO' || request.auth.token.role == 'STAFF');
+    }
+
+    // Districts and Facilities are readable by anyone logged in, writable by DHO
+    match /districts/{districtId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdminOrStaff();
+    }
+    match /facilities/{facilityId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdminOrStaff();
+    }
+
+    // Medicine Inventory
+    match /medicine_inventory/{inventoryId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdminOrStaff();
+    }
+
+    // Predictions & Simulations are read-only for public health staff
+    match /predictions/{predictionId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdminOrStaff();
+    }
+    match /interventions/{interventionId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdminOrStaff();
+    }
+  }
+}

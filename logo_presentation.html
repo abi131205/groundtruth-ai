@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GroundTruth AI - Brand Identity & Design System</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --color-primary: #244B5A;
+      --color-secondary: #00A878;
+      --color-accent: #C7772F;
+      --color-bg-light: #F8F6F1;
+      --color-bg-dark: #0B0C10;
+      --color-text-dark: #2C3138;
+      --color-text-light: #F8F6F1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background-color: var(--color-bg-light);
+      color: var(--color-text-dark);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--color-text-dark);
+      opacity: 0.8;
+    }
+
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      border: 1px solid rgba(36, 75, 90, 0.08);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--color-bg-light);
+      color: var(--color-primary);
+    }
+
+    .grid-logo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .grid-logo {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .logo-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .logo-card.light {
+      background-color: var(--color-bg-light);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .logo-card.dark {
+      background-color: var(--color-bg-dark);
+      color: white;
+    }
+
+    .logo-img {
+      width: 100%;
+      max-width: 320px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .logo-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      opacity: 0.7;
+    }
+
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .color-swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .color-display {
+      height: 100px;
+    }
+
+    .color-info {
+      padding: 15px;
+      background: white;
+    }
+
+    .color-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .color-hex {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .design-principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .design-principles {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .principle-item h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 8px;
+      color: var(--color-primary);
+    }
+
+    .principle-item p {
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    .download-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s ease;
+      margin: 10px;
+    }
+
+    .btn:hover {
+      background: #193540;
+    }
+
+    .btn-secondary {
+      background: var(--color-secondary);
+    }
+
+    .btn-secondary:hover {
+      background: #008760;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>GroundTruth AI</h1>
+      <p>Brand Identity & Visual Assets Presentation</p>
+    </header>
+
+    <!-- Logo Presentation -->
+    <div class="section">
+      <h2 class="section-title">Brand Logos</h2>
+      <div class="grid-logo">
+        <div class="logo-card light">
+          <img src="logo_light.svg" alt="GroundTruth AI Horizontal Logo - Light Mode" class="logo-img">
+          <span class="logo-label" style="color: var(--color-text-dark);">Light Mode (Horizontal Web Layout)</span>
+        </div>
+        <div class="logo-card dark">
+          <img src="logo_dark.svg" alt="GroundTruth AI Horizontal Logo - Dark Mode" class="logo-img">
+          <span class="logo-label" style="color: var(--color-text-light);">Dark Mode (Mission Control Dashboard)</span>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: center; margin-top: 30px;">
+        <div class="logo-card light" style="max-width: 240px; width: 100%;">
+          <img src="logo_mark.svg" alt="GroundTruth AI Logo Mark" style="width: 120px; height: 120px; margin-bottom: 15px;">
+          <span class="logo-label" style="color: var(--color-text-dark);">Standalone Brand Mark / Favicon</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="section">
+      <h2 class="section-title">Official Color System</h2>
+      <div class="color-palette">
+        <!-- Midnight Petrol Blue -->
+        <div class="color-swatch">
+          <div class="color-display" style="background-color: #244B5A;"></div>
+          <div class="color-info">
+            <div class="color-name" style="color: #244B5A;">Midnight Petrol</div>
+            <div class="color-hex">#244B5A (80%)</div>
+          </div>
+        </div>
+        <!-- Emerald Jade -->
+        <div class="color-swatch">
+          <div class="color-display" style="background-color: #00A878;"></div>
+          <div class="color-info">
+            <div class="color-name" style="color: #00A878;">Emerald Jade</div>
+            <div class="color-hex">#00A878 (15%)</div>
+          </div>
+        </div>
+        <!-- Copper Amber -->
+        <div class="color-swatch">
+          <div class="color-display" style="background-color: #C7772F;"></div>
+          <div class="color-info">
+            <div class="color-name" style="color: #C7772F;">Copper Amber</div>
+            <div class="color-hex">#C7772F (5%)</div>
+          </div>
+        </div>
+        <!-- Warm Porcelain -->
+        <div class="color-swatch">
+          <div class="color-display" style="background-color: #F8F6F1;"></div>
+          <div class="color-info">
+            <div class="color-name" style="color: #2C3138;">Warm Porcelain</div>
+            <div class="color-hex">#F8F6F1 (Bg)</div>
+          </div>
+        </div>
+        <!-- Graphite Black -->
+        <div class="color-swatch">
+          <div class="color-display" style="background-color: #2C3138;"></div>
+          <div class="color-info">
+            <div class="color-name" style="color: #2C3138;">Graphite Black</div>
+            <div class="color-hex">#2C3138 (Text)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Design Principles -->
+    <div class="section">
+      <h2 class="section-title">Visual Metaphor & Concept</h2>
+      <div class="design-principles">
+        <div class="principle-item">
+          <h3>Raw Data &rarr; AI &rarr; Action</h3>
+          <p>The continuous geometric line flows left-to-right. It starts as a jagged wave (Midnight Petrol Blue) mapping erratic healthcare datasets, steps up to an upward slope (Emerald Jade) validating predictive insights, and resolves at a high point with a solid dot (Copper Amber) signaling trusted, precise action.</p>
+        </div>
+        <div class="principle-item">
+          <h3>Timeless Minimalist Layout</h3>
+          <p>By using clean vector paths, flat colors, and geometric letter proportions, the logo remains completely legible at all scales, from a 16x16 browser favicon to a large-format public sector presentation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Links / Downloads -->
+    <div class="download-section">
+      <h3>File Access</h3>
+      <p style="margin-bottom: 20px; opacity: 0.8;">The SVG code assets have been written to the project workspace directory.</p>
+      <a href="logo_light.svg" class="btn" target="_blank">View Light Logo SVG</a>
+      <a href="logo_dark.svg" class="btn btn-secondary" target="_blank">View Dark Logo SVG</a>
+      <a href="logo_mark.svg" class="btn" style="background: #666;" target="_blank">View Icon Mark SVG</a>
+    </div>
+  </div>
+
+</body>
+</html>

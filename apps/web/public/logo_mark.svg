@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- GroundTruth AI Brand Mark (Icon Only) -->
+  <!-- Background: Warm Porcelain -->
+  <rect width="100%" height="100%" fill="#F8F6F1" rx="24"/>
+  
+  <g transform="translate(0, 5)">
+    <!-- Raw Data Pulse (Midnight Petrol Blue) -->
+    <path d="M 35 90 L 55 90 L 62 105 L 72 45 L 82 90 L 95 90" 
+          fill="none" 
+          stroke="#244B5A" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+          
+    <!-- AI Verification & Upward Signal (Emerald Jade) -->
+    <path d="M 95 90 L 120 50" 
+          fill="none" 
+          stroke="#00A878" 
+          stroke-width="8" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"/>
+          
+    <!-- Trusted Action / Insight Marker (Copper Amber) -->
+    <circle cx="132" cy="38" r="8" fill="#C7772F"/>
+  </g>
+</svg>
