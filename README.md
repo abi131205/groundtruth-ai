@@ -2,6 +2,12 @@
 
 > **"Seeing the people healthcare can't."**
 
+### 🔗 Live Demonstration Links
+*   **Interactive Command Centre (Frontend)**: [groundtruth-ai-five.vercel.app](https://groundtruth-ai-five.vercel.app/)
+*   **Preventive REST API (Backend)**: [groundtruth-ai-backend.onrender.com](https://groundtruth-ai-backend.onrender.com/api/v1/health) (API Docs: [groundtruth-ai-backend.onrender.com/docs](https://groundtruth-ai-backend.onrender.com/docs))
+
+---
+
 GroundTruth AI is a national-level, **AI-First Healthcare Intelligence Platform** designed to solve critical public health operational vulnerabilities before they escalate into crises. 
 
 Instead of showing yesterday's hospital statistics, GroundTruth AI continuously analyzes multi-modal signals to forecast **tomorrow's medicine stockouts, patient surges, nurse burnout, and silent dropouts** across rural Primary Health Centres (PHCs) and Community Health Centres (CHCs).
