@@ -373,8 +373,12 @@ def transcribe_rural_clinical_note(payload: TranscriptionPayload, user = Depends
             
             contents = []
             if audio_bytes:
-                # Add audio file content block
-                contents.append(types.Part.from_bytes(data=audio_bytes, mime_type=payload.audioMimeType or "audio/webm"))
+                # Sanitize mime-type for Gemini (remove codecs suffix e.g. audio/webm;codecs=opus)
+                mime_type = payload.audioMimeType or "audio/webm"
+                if ";" in mime_type:
+                    mime_type = mime_type.split(";")[0].strip()
+                logger.info(f"Using sanitized audio mime-type: {mime_type}")
+                contents.append(types.Part.from_bytes(data=audio_bytes, mime_type=mime_type))
             else:
                 contents.append(raw_text)
                 
@@ -397,7 +401,13 @@ def transcribe_rural_clinical_note(payload: TranscriptionPayload, user = Depends
             return result_json
             
         except Exception as ex:
-            logger.warning(f"Failed to use live Gemini SDK: {ex}. Using regex local fallback.")
+            import traceback
+            logger.error(f"Failed to use live Gemini SDK: {ex}")
+            logger.error(traceback.format_exc())
+            gemini_error_msg = f"{ex.__class__.__name__}: {str(ex)}"
+    else:
+        logger.warning("GEMINI_API_KEY environment variable not set on the server.")
+        gemini_error_msg = "GEMINI_API_KEY environment variable is not configured on the server. Running in offline mock fallback mode."
 
     # 3. Dynamic local fallback parser
     if audio_bytes and not raw_text:
@@ -470,7 +480,7 @@ def transcribe_rural_clinical_note(payload: TranscriptionPayload, user = Depends
         ]
     }
 
-    return {
+    response_data = {
         "transcription": raw_text,
         "translation": translation,
         "structuredFHIR": structured_fhir,
@@ -480,6 +490,10 @@ def transcribe_rural_clinical_note(payload: TranscriptionPayload, user = Depends
             "suggestedOutbreakSignal": suggested_outbreak
         }
     }
+    if 'gemini_error_msg' in locals():
+        response_data["gemini_error"] = gemini_error_msg
+        
+    return response_data
 
 
 if __name__ == "__main__":
